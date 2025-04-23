@@ -2,9 +2,11 @@ package com.pluralsight;
 
 import java.io.*;
 
-public class PayrollCalculatorApp {
+public class PayRollCalculatorApp2 {
 
     public static void main(String[] args) {
+
+
 
 
         try {
@@ -22,23 +24,22 @@ public class PayrollCalculatorApp {
 
                 //enter the parts then split at the pike for cleaner look
                 String[] inputParts = input.split("\\|");
-                //if statement skips the header row
                 if (inputParts[0].equalsIgnoreCase("ID")) {
                     continue;
                 }
-                //parsing the 
-                    int ID = Integer.parseInt(inputParts[0]);
-                    String name = inputParts[1];
-                    double hoursWorked = Double.parseDouble(inputParts[2]);
-                    double payRate = Double.parseDouble(inputParts[3]);
 
-                    //employee object line
-                    //will include everything all categories
-                    Employee wrk = new Employee(ID, name, hoursWorked, payRate);
+                int ID = Integer.parseInt(inputParts[0]);
+                String name = inputParts[1];
+                double hoursWorked = Double.parseDouble(inputParts[2]);
+                double payRate = Double.parseDouble(inputParts[3]);
 
-                    //write out the final pay line
-                    System.out.printf("Employee: %s (ID: %d) - Gross Pay: $%.2f%n",
-                            wrk.getName(), wrk.getEmployeeId(), wrk.getGrossPay());
+                //employee object line
+                //will include everything all categories
+                Employee wrk = new Employee(ID, name, hoursWorked, payRate);
+
+                //write out the final pay line
+                System.out.printf("Employee: %s (ID: %d) - Gross Pay: $%.2f%n",
+                        wrk.getName(), wrk.getEmployeeId(), wrk.getGrossPay());
 
 
 
@@ -47,6 +48,6 @@ public class PayrollCalculatorApp {
             System.out.println(e.getMessage());
         }
     }
-    }
+}
 
 
